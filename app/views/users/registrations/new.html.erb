@@ -1,0 +1,63 @@
+<center>
+
+<!DOCTYPE html>
+<head>
+<title>Classy Register Form Responsive Widget Template :: W3layouts</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Classy Register Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+<!-- css files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+<!-- //css files -->
+<!-- online-fonts -->
+<link href="//fonts.googleapis.com/css?family=Cuprum:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
+<!--//online-fonts -->
+</head>
+<body>
+  <header>
+  <div class="backgroud_image">
+    
+  </div>
+</header>
+<div class="header">
+	<h1>좌석공유서비스</h1>
+</div>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+  <div class="w3-main">
+	<!-- Main -->
+	<div class="about-bottom main-agile book-form">
+		<div class="alert-close"> </div>
+		<h2 class="tittle">회원가입</h2>
+		
+			<div class="form-date-w3-agileits">    
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :username, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+          <%= f.input :birthdate, :start_year => (Date.current).year, :end_year => (Date.current - 100.year).year, required: true, autofocus: true %>
+          <br>
+          <label>* Interest</label>
+            <div class="section_room">
+            <select id="country">
+												<option value="">option 1</option>
+												<option value="">option 2</option>
+												<option value="">option 3</option>         
+												<option value="">option 4</option>
+						</select>
+						</div>
+   
+  </div>
+      <div class="sub-main-w3">
+          <%= f.button :submit, "가입하기" %>
+        </div>
+    <%= render "users/shared/links" %>
+    <% end %>
+    
+ </center>
+ 
+ 
