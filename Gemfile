@@ -67,6 +67,13 @@ group :development, :test do
   gem 'awesome_print'
   # 더미데이터 만들기
   gem 'faker'
+  
+  gem 'carrierwave' 
+  # 이미지 업로드
+  gem 'fog-aws'
+
+  gem 'mini_magick'
+  #썸네일 for carrierwave
 end
 
 group :development do

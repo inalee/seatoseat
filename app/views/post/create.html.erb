@@ -1,0 +1,54 @@
+<p>리뷰 작성하기</p>
+<br>
+<form action='/create_post' method='POST' enctype="multipart/form-data">
+    <p>별점주기</p>
+    <br><br>
+    <p>관람장소</p>
+    <!-- 지역선택 -->
+    <select name='region'>
+        <% @place.select("DISTINCT(region)").each do |e| %>
+            <option value='<%= e.region %>'><%= e.region %></option>
+        <% end %>
+    </select>
+    <!-- 공연장선택 -->
+    <select name='place_name'>
+        <% @place.each do |e| %>
+            <option value='<%= e.place_name %>'><%= e.place_name %></option>
+        <% end %>
+    </select>   
+    <!-- 관선택 -->
+    <select name='place_room'>
+        <% @place.each do |e| %>
+            <option value='<%= e.room %>'><%= e.room %></option>
+        <% end %>
+    </select>
+    <br><br>
+    <p>관람일자</p>
+    <input name='input_watch', type='date'>
+    <br><br>
+    <p>공연</p>
+    <select name='perfo_name'>
+        <% @performance.each do |e| %>
+            <option value='<%= e.perfo_name %>'><%= e.perfo_name %></option>
+        <% end %>
+    </select>
+    <br><br>
+    <p>한줄평</p>
+    <input name='review_title',type='string'>
+    <br><br>
+    <p>상세후기</p>
+    <input name='review_content',type='text'>
+    <br><br>
+    
+    <p>사진업로드</p>
+    <div class="input-field col s6">
+    <label for="file_text">이미지를 넣어주세요</label><br><br>
+    <input type="file" name="inputUrl" accept="image/*"><br><br>
+    </div>
+    
+    <br><br>
+    
+ 
+    <input type='submit' name='post_submit'>
+    
+</form>

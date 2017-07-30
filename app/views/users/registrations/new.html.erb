@@ -41,16 +41,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
           <%= f.input :password_confirmation, required: true %>
           <%= f.input :birthdate, :start_year => (Date.current).year, :end_year => (Date.current - 100.year).year, required: true, autofocus: true %>
           <br>
-          <label>* Interest</label>
-            <div class="section_room">
-            <select id="country">
-												<option value="">option 1</option>
-												<option value="">option 2</option>
-												<option value="">option 3</option>         
-												<option value="">option 4</option>
-						</select>
-						</div>
-   
+
   </div>
       <div class="sub-main-w3">
           <%= f.button :submit, "가입하기" %>
