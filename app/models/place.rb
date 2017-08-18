@@ -1,4 +1,4 @@
 class Place < ActiveRecord::Base
-    has_many :performances
     has_many :seats
+    has_many :rooms
 end

@@ -1,49 +1,22 @@
-<center>
-  
-<!DOCTYPE html>
-<head>
-<title>Classy Register Form Responsive Widget Template :: W3layouts</title>
-<!-- Meta tag Keywords -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Classy Register Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Meta tag Keywords -->
-<!-- css files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-<!-- //css files -->
-<!-- online-fonts -->
-<link href="//fonts.googleapis.com/css?family=Cuprum:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
-<!--//online-fonts -->
-</head>
-<body>
-  <header>
-  <div class="backgroud_image">
-    
-  </div>
-</header>
-<div class="header">
-	<h1>좌석공유서비스</h1>
-</div>
-  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-    <div class="w3-main">
-	  <!-- Main -->
-  	<div class="about-bottom main-agile book-form">
-	  	<div class="alert-close"> </div>
-	  	<h2 class="tittle">비밀번호 찾기</h2>
-	  	
-			<div class="form-date-w3-agileits">
-        <%= f.input :email, required: true, autofocus: true %>
 
-      <div class="sub-main-w3">
-        <%= f.button :submit, "비밀번호 재설정" %>
-      </div>
-      <%= render "users/shared/links" %>
+
+<body style="background-color: #fff; color: #3d078a; overflow:hidden;">
+<div class="logincontainer">
+  <div class="login">
+  	<!--<h1 class="login-heading deviceTitle">Seat to Seat</h1>-->
+    <h1 class="login-heading deviceTitle">비밀번호 찾기</h1>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
+   
+    <%= f.input :email, required: true, autofocus: true, label: false, placeholder: 'E-mail', input_html: { class: 'login_input'}  %>
+
+    <%#= f.button :submit, "비밀번호 재설정" %>
+    <input type="submit" name="commit" value="비밀번호 재설정" class="login_btn login_btn--right" >
+      
+    <a class="login_link" href="/users/sign_in">로그인</a>
+    <a class="login_link" href="/users/sign_up">회원 가입</a>
+    
     </div>
 <% end %>
-
-
-
-</center>
+</div>
+</div>

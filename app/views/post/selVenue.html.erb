@@ -1,0 +1,4 @@
+<option>---</option>
+<% @venue.each do |e| %>
+    <option value='<%= e.id %>'><%= e.place_name %></option>
+<% end %>

@@ -1,14 +1,45 @@
 Rails.application.routes.draw do
-  devise_for :admins
   devise_for :users
+  devise_for :admins
+  
   root 'home#index'
+  get '/create' => 'post#create'
+  post '/create_post' => 'post#new'
+  get '/delete/:post_id'=>'post#delete'
   
-  get 'create' => 'post#create'
-  post 'create_post' => 'post#new'
-  
-  get 'test' => 'post#test'
-  
+  get '/test' => 'post#test'
+  get '/seatPlan/:room_id' => 'post#seatPlan'
+  get '/seatReview' => 'post#seatReview'
+  get '/detailPost/:post_id' => 'post#detailPost'
 
+  
+  get '/category' => 'home#category_perfo'
+  get '/categorySport' => 'home#category_sport'
+  get '/categoryTheater' => 'home#category_theater'
+  get '/info/:place_id' => 'home#info'  
+  get '/category2' => 'home#category2'
+  
+  get '/r_perfo' => "home#r_perfo"
+  get '/r_sport' => "home#r_sport"
+  get '/r_theater' => "home#r_theater"
+  get 'r_perfo_place' => 'home#r_perfo_place'
+  
+  
+  get '/perfoInfo/:performance_id' => 'home#perfoInfo'
+  
+  
+  get '/place' => "post#place_1"
+  get '/place_1' => 'post#place_1'
+
+  get '/testing' => "post#testing"
+  
+  get '/selVenue' => "post#selVenue"
+  get '/selSection' => "post#selSection"
+  get '/selRow' => "post#selRow"
+  get '/selRoom' => "post#selRoom"
+  get '/selNumber' => "post#selNumber"
+  get '/about' => "home#about"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

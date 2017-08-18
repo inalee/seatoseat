@@ -1,54 +1,36 @@
-<center>
+<body style="background-color: #fff; color: #3d078a; overflow:hidden;">
+<div class="logincontainer" >
+  <div class="login">
+  	<h1 class="login-heading deviceTitle">Seat to Seat</h1>
 
-<!DOCTYPE html>
-<head>
-<title>Classy Register Form Responsive Widget Template :: W3layouts</title>
-<!-- Meta tag Keywords -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Classy Register Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Meta tag Keywords -->
-<!-- css files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-<!-- //css files -->
-<!-- online-fonts -->
-<link href="//fonts.googleapis.com/css?family=Cuprum:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
-<!--//online-fonts -->
-</head>
-<body>
-  <header>
-  <div class="backgroud_image">
-    
-  </div>
-</header>
-<div class="header">
-	<h1>좌석공유서비스</h1>
-</div>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-  <div class="w3-main">
-	<!-- Main -->
-	<div class="about-bottom main-agile book-form">
-		<div class="alert-close"> </div>
-		<h2 class="tittle">회원가입</h2>
-		
-			<div class="form-date-w3-agileits">    
-          <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :username, required: true, autofocus: true %>
-          <%= f.input :password, required: true, hint: ("" if @minimum_password_length) %>
-          <%= f.input :password_confirmation, required: true %>
-          <%= f.input :birthdate, :start_year => (Date.current).year, :end_year => (Date.current - 100.year).year, required: true, autofocus: true %>
-          <br>
-
-  </div>
-      <div class="sub-main-w3">
-          <%= f.button :submit, "가입하기" %>
-        </div>
-    <%= render "users/shared/links" %>
-    <% end %>
+    <!--E-mail-->
+    <%= f.input :email, required: true, autofocus: true, label: false, placeholder: 'E-mail', input_html: { class: 'login_input'} %>
     
- </center>
- 
- 
+    <!--User name-->
+    <%= f.input :username, required: true, autofocus: true, label: false, placeholder: 'User name', input_html: { class: 'login_input'} %>
+
+    <!--Password-->
+    <%= f.input :password, required: true, label: false, placeholder: 'Password', input_html: { class: 'login_input'}, hint: "" if @minimum_password_length %>
+    
+    <!--PasswordConfirmation-->
+    <%= f.input :password_confirmation, required: true, label: false, placeholder: 'PasswordConfirmation', input_html: { class: 'login_input'} %>
+    
+    <!-- Birthdate -->
+    
+    <%= f.input :birthdate, :start_year => (Date.current).year, :end_year => (Date.current - 100.year).year, required: false,
+    autofocus: true, label: 'Birthdate', label_html: { class: 'label_birth'}, input_html: { class: 'login_input_birt'} %>
+    
+  <%#= f.button :submit, "가입하기" %>
+  <div class="row" style="margin-right: 0; margin-top: 8%;" >
+  <input type="submit" name="commit" value="가입하기" class="login_btn login_btn--right"  >
+  </div>
+    
+    <a class="login_link" href="/users/sign_in">로그인</a>
+    <a class="login_link" href="/users/password/new">비밀번호 찾기</a>
+    
+    <% end %>
+  </div>
+</div>
+ </body>

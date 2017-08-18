@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'rails', '4.2.5'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -68,7 +68,7 @@ group :development, :test do
   # 더미데이터 만들기
   gem 'faker'
   
-  gem 'carrierwave' 
+  gem 'carrierwave'
   # 이미지 업로드
   gem 'fog-aws'
 

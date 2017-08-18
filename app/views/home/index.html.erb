@@ -1,328 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<html lang="ko">
-<head>
-<title>Seat To Seat</title>
-<!-- custom-theme -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Symphony Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //custom-theme -->
-<link href="/assets/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- js -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<!-- //js -->
-<!-- font-awesome-icons -->
-<link href="/assets/font-awesome.css" rel="stylesheet"> 
-<!-- //font-awesome-icons -->
-<link href="//fonts.googleapis.com/css?family=Sofia" rel="stylesheet">
-<link href="//fonts.googleapis.com/css?family=Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet"><style type="text/css">
-<!--
-.style1 {
-	font-family: "맑은 고딕";
-	font-size: 0.5em;
-}
-.style2 {font-size: 0.5em}
-.style3 {color: #FF0000}
-.style5 {font-family: "맑은 고딕"; font-weight: bold; }
-.style6 {color: #FFFF99}
-.style7 {
-	font-family: inherit
-}
--->
-</style></head>
-	
-<body>
-	<!-- banner -->
-<header class="navbar"> 
-	<div class="banner">
-		<div class="container">
-			<nav class="navbar navbar-default">
-				<div class="navbar-header navbar-left">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<h1><a class="navbar-brand" href="index.html">SEAT TO SEAT</a></h1>
-				</div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-					<nav class="menu menu--iris">
-						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><%= link_to "Home", "/" %></li>
-							<li class="menu__item"><a href="music.html" class="menu__link">A1</a></li>
-							<li class="menu__item"><a href="gallery.html" class="menu__link">A2</a></li>
-							<li class="dropdown menu__item">
-								<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown">B1 <b class="caret"></b></a>
-								<ul class="dropdown-menu agile_short_dropdown">
-									<li><a href="icons.html">c1</a></li>
-									<li><a href="icons.html">c2</a></li>
-									<li><a href="icons.html">c3</a></li>
-									<li><a href="typography.html">c4</a></li>
-								</ul>
-									 <% if user_signed_in? %>
-				            			<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-				       				 <% else %>
-				           				 <li><%= link_to 'Log in', new_user_session_path %></li>
-				       				 <% end %>
-						
-					</nav>
-				</div>
-			</nav>
-			<div class="agile_banner_info">
-				<h3 class="style2"><span class="style1">좌석정보 공유 </span><span class="style1">커뮤니티</span></h3>
-			  <p class="style2">&nbsp;</p>
-		  </div>
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background: none;">
+	<div class="container">
+	  <div class="navbar-header">
+	  	<a class="navbar-brand page-scroll" href="/" style="color: #3d078a;">Seat To Seat</a>
 	  </div>
+	  
+	   	<ul class="nav navbar-nav navbar-right" id="NavTab">
+	   		<li> <a class="page-scroll" href="/about">About Us</a></li>
+	   		
+	        <li class="drop-down"> <a class="page-scroll" href="/category">Review</a>
+	        	<div class="mega-menu"> <!--드롭다운-->
+				   <span class="categories-list" >
+					<ul >
+						<li ><a class="drop-list" href="/category" >공연</a></li>
+						<li style="margin-top: 30px; ">
+							<a class="drop-list" href="/categorySport">스포츠</a>
+						</li>
+						<li style="margin-top: 60px;"><a class="drop-list" href="/categoryTheater">극장</a></li>
+					</ul>
+					</span>
+				</div>
+	        </li>
+	        <li> <a class="page-scroll" href="/create">Add Review</a></li>
+	        
+	        <% if user_signed_in? %>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        	<% else %>
+            <li><%= link_to 'Log in', new_user_session_path %></li>
+        	<% end %>
+	    </ul>
+	    
 	</div>
-</header>
+</nav>
+					 	
+<div class="header"><div class="container">
+<div class="header-content"><div class="header-content-inner ">
 
-<div class="newsletter">
-  <div class="container">
-    <div class="col-md-4 w3_agile_newsletter_left">
-      <p class="style5">빠른 공연장 찾기</p>
-    </div>
-    <div class="col-md-8 w3_agile_newsletter_right">
-      <form action="#" method="post">
-        <input type="email" name="Email" placeholder="검색어를 입력하세요." required="">
-        <input type="submit" value="검색하기">
-      </form>
-    </div>
-    <div class="clearfix"> </div>
-  </div>
-</div>
+<!--메인 인트로		-->
+	<section class="mainsection">
+	  <!--왼쪽 버블-->
+	  <div class="pserson_bubble slidingVertical_left" id="person_bubble"><div class="effect">
+		<img class="person" src="https://s13.postimg.org/ih41k9tqr/img1.jpg" alt="" />
+	  	<p class="name">User name</p>
+	  	<div class="from-me" ><p id="leftBubble"></p></div>
+	  </div></div>
+	  
+	  <!--Seat To Seat-->
+	  <div class="clear mainText">
+	  	 <h1 class="title"> seat to seat </h1>
+	  	 <h3 class="subtitle"> 내가 원하는 좌석 정보를 한눈에! </h3>
+	  </div>
+	 
+	 <!--오른쪽 버블-->
+	 <div class="them_bubble slidingVertical_right" id="them_bubble"><div class="effect">
+		<img class="person" src="https://s13.postimg.org/ih41k9tqr/img1.jpg" alt="" />
+			<p class="name">User name</p>
+	 		<div class="from-them"><p id="rightBubble"></p></div>
+	 </div></div>
+	<div class="clear"></div>
+</section>
+	</div></div>
+</div></div>
 
-<br>
+<!--드롭다운 js-->
 
-	<div class="banner-bottom">
-<div class="wthree_banner_bottom_grid1">
-  <div class="col-md-3 agileits_w3layouts_banner_bottom_grid">
-			<div class="hovereffect">
-				<img src="/assets/2.jpg" alt=" " class="img-responsive" />
-				<div class="overlay">
-					<h3 class="w3_instruments">공연장1</h3>
-					<div class="rotate">
-						
-							<a href="#">
-							</a>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="agileinfo_banner_bottom_grid">
-				<div class="agileits_banner_bottom_grid1">
-				  <h4 class="w3ls_color">소제목1</h4>
-					<h3>대제목1</h3>
-					<p>내용1</p>
-				</div>
-			</div>
-  </div>
-		<div class="col-md-3 agileits_w3layouts_banner_bottom_grid">
-			<div class="hovereffect">
-				<img src="/assets/3.jpg" alt=" " class="img-responsive" />
-				<div class="overlay">
-					<h3 class="w3_instruments">공연장2</h3>
-					<div class="rotate">
-						
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="agileinfo_banner_bottom_grid w3l_banner_bottom1">
-				<div class="agileits_banner_bottom_grid1">
-				  <h4 class="w3ls_color1">소제목2</h4>
-					<h3>대제목2</h3>
-					<p>내용3</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3 agileits_w3layouts_banner_bottom_grid">
-          <div class="hovereffect"> <img src="/assets/4.jpg" alt=" " class="img-responsive" />
-              <div class="overlay">
-                <h3 class="w3_instruments">공연장3</h3>
-                <div class="rotate">
-                  
-                </div>
-              </div>
-          </div>
-		  <div class="agileinfo_banner_bottom_grid w3l_banner_bottom2">
-            <div class="agileits_banner_bottom_grid1">
-              <h4 class="w3ls_color2">소제목3</h4>
-              <h3>대제목3</h3>
-              <p>내용3</p>
-            </div>
-	      </div>
-  </div>
-		<div class="clearfix">
-		  <div class="col-md-3 agileits_w3layouts_banner_bottom_grid">
-            <div class="hovereffect"> <img src="/assets/4-1.jpg" alt=" " class="img-responsive" />
-                <div class="overlay">
-                  <h3 class="w3_instruments">공연장4</h3>
-                  <div class="rotate">
-                    <p class="group1"> <a href="#"> <i class="fa fa-twitter"></i> </a> <a href="#"> <i class="fa fa-facebook"></i> </a> </p>
-                    <hr>
-                    <hr>
-                    <p class="group2"> <a href="#"> <i class="fa fa-instagram"></i> </a> <a href="#"> <i class="fa fa-dribbble"></i> </a> </p>
-                  </div>
-                </div>
-            </div>
-		    <div class="agileinfo_banner_bottom_grid w3l_banner_bottom3">
-              <div class="agileits_banner_bottom_grid1">
-                <h4 class="w3ls_color2 style6">소제목4</h4>
-                <h3>대제목4</h3>
-                <p>내용4</p>
-              </div>
-	        </div>
-	      </div>
-		</div>
-</div>
-				
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+<script>
+    $(document).ready(function() {
 			
-<!-- //banner-bottom -->
-<!-- about -->
-	<div class="about">
-		<div class="container">
-			<div class="w3_agile_about_grids">
-				<div class="col-md-6 w3_agile_about_grid_left">
-					<img src="/assets/5.jpg" alt=" " height="466" class="img-responsive" />				</div>
-<div class="col-md-6 w3_agile_about_grid_right">
-					<h3>seat to seat 소개</h3>
-					<h4>사 용 설 명 서</h4>
-					<p>이렇게 사용하시면 됩니다.<span>멋쟁이 사자처럼 화이팅!</span></p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-			  </div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-<br>
-<br>
-<!-- //features -->
-<!-- newsletter -->
-<!-- //newsletter -->
-<!-- team -->
-<div class="team">
-		<div class="col-md-3 agile_team_left">
-			<h3 class="style7">예매처 바로가기</h3>
-  </div>
-<div class="col-md-9 agile_team_grid">	
-			<ul id="flexiselDemo1">	
-				<li>
-					<div class="hovereffect1 w3ls_banner_bottom_grid">
-						<img src="/assets/7.jpg" alt=" " height="445" class="img-responsive" />
-						<div class="overlay">
-<h4>티켓링크</h4>
-<ul class="social_agileinfo">
-						
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="hovereffect1 w3ls_banner_bottom_grid">
-						<img src="/assets/10.jpg" alt=" " class="img-responsive" />
-						<div class="overlay">
-<h4>멜론티켓</h4>
-<ul class="social_agileinfo">
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="hovereffect1 w3ls_banner_bottom_grid">
-						<img src="/assets/8.jpg" alt=" " class="img-responsive" />
-						<div class="overlay">
-							<h4>인터파크티켓</h4>
-							<ul class="social_agileinfo">
-		
-							</ul>
-						</div>
-					</div>
-				</li>
-				<li></li>
-</ul>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-<!-- //team -->
-<!-- latest-albums -->
-<!-- //latest-albums -->
-<!-- footer -->
-<!-- //footer -->
-<!-- copy-right -->
-<div class="w3agile_copy_right">
-		<div class="container">
-			 <p>© LIKELION 5TH - <span class="style3">Team Name</span></p>
-  </div>
-	</div>
-<!-- //copy-right -->
-
-<!-- flexisel -->
-	<script type="text/javascript">
-			$(window).load(function() {
-				$("#flexiselDemo1").flexisel({
-					visibleItems: 3,
-					animationSpeed: 1000,
-					autoPlay: false,
-					autoPlaySpeed: 3000,    		
-					pauseOnHover: true,
-					enableResponsiveBreakpoints: true,
-					responsiveBreakpoints: { 
-						portrait: { 
-							changePoint:480,
-							visibleItems: 1
-						}, 
-						landscape: { 
-							changePoint:640,
-							visibleItems:2
-						},
-						tablet: { 
-							changePoint:768,
-							visibleItems: 2
-						}
-					}
-				});
-				
+			//drop down menu	
+					$(".drop-down").hover(function() {
+						$('.mega-menu').addClass('display-on');
+					});
+					$(".drop-down").mouseleave(function() {
+						$('.mega-menu').removeClass('display-on');
+					});
+			
 			});
-	</script>
-	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
-<!-- //flexisel -->
-<!-- start-smooth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
-			event.preventDefault();
-			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-		});
-	});
 </script>
-<!-- start-smooth-scrolling -->
-<!-- for bootstrap working -->
-	<script src="js/bootstrap.js"></script>
-<!-- //for bootstrap working -->
-<!-- here stars scrolling icon -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
-								
-			});
-	</script>
-<!-- //here ends scrolling icon -->
-</body>
-</html>
+
+<!--말풍선 내용 바꾸기-->
+<script>
+	var myVar = setInterval(bubble, 3000);
+    
+    var title = [];
+    title[0] = '<%= @postArray[0] %>';
+    title[1] = '<%= @postArray[1] %>';
+    title[2] = '<%= @postArray[2] %>';
+    title[3] = '<%= @postArray[3] %>';
+    title[4] = '<%= @postArray[4] %>';
+    title[5] = '<%= @postArray[5] %>';
+    title[6] = '<%= @postArray[6] %>';
+    title[7] = '<%= @postArray[7] %>';
+    title[8] = '<%= @postArray[25] %>';
+    title[9] = '<%= @postArray[26] %>';
+    title[10] = '<%= @postArray[8] %>';
+    title[11] = '<%= @postArray[9] %>';
+    title[12] = '<%= @postArray[10] %>';
+    title[13] = '<%= @postArray[11] %>';
+    title[14] = '<%= @postArray[12] %>';
+    title[15] = '<%= @postArray[13] %>';
+    title[16] = '<%= @postArray[14] %>';
+    title[17] = '<%= @postArray[15] %>';
+    title[18] = '<%= @postArray[16] %>';
+    title[19] = '<%= @postArray[17] %>';
+    title[20] = '<%= @postArray[18] %>';
+    title[21] = '<%= @postArray[19] %>';
+    title[22] = '<%= @postArray[20] %>';
+    title[23] = '<%= @postArray[21] %>';
+    title[24] = '<%= @postArray[22] %>';
+    title[25] = '<%= @postArray[23] %>';
+    title[26] = '<%= @postArray[26] %>';
+    title[27] = '<%= @postArray[27] %>';
+    title[28] = '<%= @postArray[28] %>';
+    title[29] = '<%= @postArray[29] %>';
+    title[30] = '<%= @postArray[30] %>';
+    
+    function bubble() {
+        var d = new Date();
+        var s = d.getSeconds();
+       document.getElementById("leftBubble").innerHTML = title[Math.floor(Math.random() * title.length)];
+       document.getElementById("rightBubble").innerHTML = title[Math.floor(Math.random() * title.length)];
+    }
+</script>
+</script>

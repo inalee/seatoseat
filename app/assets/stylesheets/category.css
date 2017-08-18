@@ -1,0 +1,97 @@
+.caption{
+    height: 200px;
+
+}
+
+.caption p{
+    padding: 4% 0% 4% 0px;
+}
+
+p{
+    text-align: justify;
+}
+
+.thumbnail{
+    width: 300px;
+    height: 260px;
+    border: none;
+}
+
+.main{
+    margin-top: 5%;
+    
+}
+
+.category{
+    margin-right: 1%;
+
+}
+
+.categoryTab{
+    margin-right: 3%;
+}
+
+.btn-group .categoryTab > a{
+ text-decoration: blink; 
+}
+
+
+
+#filter-bar {
+    width: 100%; 
+    margin:0; 
+    padding:0; 
+    height:36px; 
+    display:inline-flex;
+    background-color: #F0F0F0;
+}
+#wrapper-filter {
+    background-color:#fff; 
+    /*width: 570px; */
+    height:auto; 
+    margin:30px auto; 
+    border-radius: 30px; 
+    box-sizing: border-box;
+    
+}
+
+#filter-bar li {
+    width: 100px;
+    background-color: transparent; 
+    text-align: center; 
+    list-style-type: none;z-index:10;
+    cursor: pointer; 
+     font-weight: 200; 
+     font-size: 15px;
+     line-height:36px;
+    
+}
+.pill {
+    position: absolute;
+    width:100px; 
+    height: 38px; 
+    background-color: #3d078a ;
+    /*border-radius: 30px; */
+    color: #444; 
+    z-index:10;
+    /*border: 5px solid #eee; */
+    box-sizing: border-box;
+    
+}
+.filter-option {
+    transition: color 500ms;
+    
+}
+#filter-bar.option-1 .pill {
+    margin-left: 0px; transition: margin-left 200ms ease;
+}
+#filter-bar.option-2 .pill {
+    margin-left: 100px; transition: margin-left 200ms ease;
+}
+#filter-bar.option-3 .pill {
+    margin-left: 200px; transition: margin-left 200ms ease;
+}
+	
+.option-1.active, .option-2.active, .option-3.active {
+    color:#fff; transition: color 200ms;
+}

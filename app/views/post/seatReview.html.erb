@@ -1,0 +1,299 @@
+ <!-- 장소이름 -->
+ <% @findPlace.each do |q| %>
+ <%= q.place_name %>
+ <% end %>
+ <!-- room 이름 -->
+  <% @roomFind.each do |a| %>
+             <%= a.name %> 
+             <% end %>
+<!-- 상세 구역 -->
+            <% @seating.each do |w| %>
+            <%= w.area1 %>
+            <%= w.area2 %>
+            <%= w.area3 %>
+            <% end %>
+            
+            
+<div class="container">
+    
+<div class="row summary"> 
+ 
+        <div class="col-md-4 col-md-offset-1"> <!-- 원형 그래프 --> 
+          <!--<h3>만족도</h3>-->
+            <div class="bar_container">
+                <div id="main_container">
+                    <div id="pbar" class="progress-pie-chart" data-percent="0">
+                        <div class="ppc-progress">
+                            <div class="ppc-progress-fill">
+                            </div>
+                        </div>
+                            <div class="ppc-percents">
+                                <div class="pcc-percents-wrapper"><span>%</span>
+                                
+                                </div>
+                            </div>
+                    </div>
+                 <progress style="display: none" id="progress_bar" value="0" max="<%= @finalever.to_i %>"></progress>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-1" style=" margin-top: 50px;"> <!-- 막대 그래프 --> 
+            <h3 class="progress-title">시야</h3>
+            <div class="progress pink">
+                <div class="progress-bar" style="width:<%= @average1 %>%; background:#3d078a;">
+                    <div class="progress-result"><%= @average1.to_i %>%</div> 
+                </div>
+            </div>
+            <h3 class="progress-title">편의성</h3>
+             <div class="progress pink">
+                <div class="progress-bar" style="width:<%= @average2 %>%; background:#3d078a;">
+                    <div class="progress-result"><%= @average2.to_i %>%</div> 
+                </div>
+            </div>
+            <h3 class="progress-title">편안함</h3>
+             <div class="progress pink">
+                <div class="progress-bar" style="width:<%= @average3 %>%; background:#3d078a;">
+                    <div class="progress-result"><%= @average3.to_i %>%</div> 
+                </div>
+            </div>
+            <h3 class="progress-title">음향</h3>
+             <div class="progress pink">
+                <div class="progress-bar" style="width:<%= @average4 %>%; background:#3d078a;">
+                    <div class="progress-result"><%= @average4.to_i %>%</div> 
+                </div>
+            </div>
+            <h3 class="progress-title">항목5</h3>
+             <div class="progress pink">
+                <div class="progress-bar" style="width:<%= @average5 %>%; background:#3d078a;">
+                    <div class="progress-result"><%= @average5.to_i %>%</div> 
+            </div>
+        </div>
+    </div>
+   
+</div>
+            
+
+
+        
+
+
+<!-- line bar -->
+<div class="container">
+<!-- Main Content -->
+    <table class="table">
+        
+        <% @seatPost.zip(@userFind.each).each do |post,u| %>
+        
+        <tr >
+            <td style="text-align: right; vertical-align: middle;">
+
+                <ul>
+                    <li class="reviewstar">시야</li>
+                    <li class="reviewstar">편의성</li>
+                    <li class="reviewstar">편안함</li>
+                    <li class="reviewstar">음향</li>
+                    <li class="reviewstar">항목 5</li>
+                </ul> 
+            <td style="vertical-align: middle;"> 
+               <ul>
+                    <li class="reviewstar"> <span class="rating-static rating_<%= post.post_item1.to_i %>"></span></li>
+                    <li class="reviewstar"><span class="rating-static rating_<%= post.post_item2.to_i %>"></span></li>
+                    <li class="reviewstar"><span class="rating-static rating_<%= post.post_item3.to_i %>"></span></li>
+                    <li class="reviewstar"><span class="rating-static rating_<%= post.post_item4.to_i %>"></span></li>
+                    <li class="reviewstar"><span class="rating-static rating_<%= post.post_item5.to_i %>"></span></li>
+                </ul> 
+                </td>    
+            </td>
+                <td style="vertical-align: middle; width: 80%; padding-top: 2%; padding-bottom: 2%">
+                  <div style="margin-bottom: 1%;">
+                    <!--<span class="usermark ">실 관람객 </span>-->
+                       <!--%= u.username %>-->
+                       
+                    <!--%  if user_signed_in? %>
+                    <!--%  if u.username.eql? current_user.username %>
+                        <a class="deletePost" href="/delete/<%= post.id %>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <!--% end %>
+                    <!--% end %>-->
+                 
+                    <span class="Date"><%= post.created_at.to_date %></span>
+                    
+                        
+                   </div>
+                   
+                 
+                     
+                    <h2 class="post-title"><%= post.post_title %></h2>
+                        <div class="post-subtitle">
+                           <div class="more"> <%= post.post_content %> </div>
+                    </div>
+                    <!--<ul class="infoUl">-->
+                    <!--<li class="infoList">-->
+                    
+              
+                    
+                    
+<div class="gallery_wrapper">
+  <div class="wrapper_inner">
+    <!-- Gallery -->
+    <section class="gallery">
+      <!-- Gallery  item -->
+      <div class="gallery_item">
+        <!-- Gallery  item preview -->
+        <span class="gallery_item_preview">
+          <a href="#" data-js="1"><img src="https://25.media.tumblr.com/1adc4029ef3a31124f222add70fa3553/tumblr_n2k1499dIp1st5lhmo1_1280.jpg" alt="" /><span></span></a>
+        </span>
+        <!-- Gallery  item full -->
+        <div data-lk="1" class="gallery_item_full"><div class="box">
+            <img src="https://25.media.tumblr.com/1adc4029ef3a31124f222add70fa3553/tumblr_n2k1499dIp1st5lhmo1_1280.jpg" alt="" />
+        </div></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+
+
+
+                    
+                    
+                    
+                </td>
+                   
+        </tr>   
+         
+        <% end %>  
+                    
+    총 <%= @count %>개의 리뷰
+     </table>
+   <%= paginate @seatPost %> <!-- 페이지네이션 -->
+</div>
+
+
+
+
+<script>
+    
+    
+    
+    
+    $(document).ready(function() {
+var progressbar = $('#progress_bar');
+max = progressbar.attr('max');
+time = (500 / max) * 5;
+value = progressbar.val();
+
+var loading = function() {
+value += 1;
+addValue = progressbar.val(value);
+
+$('.progress-value').html(value + '%');
+var $ppc = $('.progress-pie-chart'),
+deg = 360 * value / 100;
+if (value > 50) {
+$ppc.addClass('gt-50');
+}
+
+$('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
+$('.ppc-percents span').html(value + '%');
+
+if (value == max) {
+clearInterval(animate);
+}
+};
+
+var animate = setInterval(function() {
+loading();
+}, time);
+});
+
+
+
+
+
+</script>
+
+
+
+<script>
+    function selSeat(val) {
+        $.ajax({
+          method: "GET",
+          url: "/seatReview",
+          data: { seat_id: val }
+        })
+          .done(function( msg ) {
+            $("#seatReview").html(msg);
+          });
+    }
+
+
+   
+    
+</script>
+
+<!--Gallery-->
+<script>
+    var gallery = (function(){
+  'use strict';
+  return {
+    // this.js(obj)
+    js: function(e){return $("[data-js="+e+"]");},
+    // this.lk(obj)
+    lk: function(e){return $("[data-lk="+e+"]");},
+    // Ready functions
+    ready_: function(){this.events();},
+    //  functions
+    events:function(){
+      var self = this;
+      var close = $('.gallery_item_full');
+      close.append('<a href="#" data-js="cl" class="cl"><i class="fa fa-times" aria-hidden="true"></i></a>');
+      // Get all data js and add clickOn function
+      var k = $('a[data-js]');
+      k.each(function(i, v){
+        i = i+1;
+        self.clickOn(i);
+      });
+      // close on click
+      self.js('cl').on("click",function(){
+        self.fx_out($('.gallery_item_full'));
+        self.fx_out($('.box'));
+      });
+      
+      // list
+      self.js('list').on("click",function(){
+        $('.gallery_item').toggleClass('gallery_item_list');
+        $('.gallery_item_preview a img').toggleClass('gallery_line');
+      });
+    },
+    // Show on click
+    clickOn: function(i){
+      var self = this;
+      this.js(i).on('click',function(){
+        self.fx_in(self.lk(i)); 
+        self.fx_in($('.box'));
+      });
+    }, 
+    // out function
+    fx_out: function(el){
+      el.addClass('efOut')
+      .delay(500)
+      .fadeOut('fast')
+      .removeClass('efIn');
+      $('body').css({overflow:'auto'});
+      return false;
+    }, 
+    // in function
+    fx_in: function(el){
+      el.removeClass('efOut')
+      .show()
+      .addClass('efIn');
+      $('body').css({overflow:'hidden'});
+      return false;
+    }
+  };
+})();
+// ready function of gallery
+gallery.ready_();
+    
+</script>

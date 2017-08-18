@@ -1,0 +1,30 @@
+
+<div class="row" style="margin: 5% 0 2% 0">
+            <div class="col-lg-12">
+                <h3>Review List page</h3>
+            </div>
+        </div>
+        
+        
+        <div class="row">
+            <% @place.each do |x| %>
+                <div class="col-md-4 col-sm-4">
+                    <div class="thumbnail">
+                        <a href="/info/<%= x.id %>">
+                        <% if x.image.blank? %>
+                        <img src="http://placehold.it/300x200" alt="">
+                        <% else %>
+                        <img src="<%= x.image %>" width="300" height="200" alt="">
+                        <% end %>
+                            <div class="caption">
+                                <%= x.region %><br>
+                                <%= x.place_name %>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+             <% end %>
+        </div>
+
+
+</div>

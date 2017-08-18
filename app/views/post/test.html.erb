@@ -1,0 +1,46 @@
+<p>A script on this page starts this clock:</p>
+<!--<button onclick="hhh()">여기</button>-->
+<p id="demo"></p>
+
+<script>
+    var myVar = setInterval(bubble, 1000);
+    
+    var title = [];
+    title[0] = '<%= @postArray[0] %>';
+    title[1] = '<%= @postArray[1] %>';
+    title[2] = '<%= @postArray[2] %>';
+    title[3] = '<%= @postArray[3] %>';
+    title[4] = '<%= @postArray[4] %>';
+    title[5] = '<%= @postArray[5] %>';
+    title[6] = '<%= @postArray[6] %>';
+    title[7] = '<%= @postArray[7] %>';
+    title[8] = '<%= @postArray[25] %>';
+    title[9] = '<%= @postArray[26] %>';
+    title[10] = '<%= @postArray[8] %>';
+    title[11] = '<%= @postArray[9] %>';
+    title[12] = '<%= @postArray[10] %>';
+    title[13] = '<%= @postArray[11] %>';
+    title[14] = '<%= @postArray[12] %>';
+    title[15] = '<%= @postArray[13] %>';
+    title[16] = '<%= @postArray[14] %>';
+    title[17] = '<%= @postArray[15] %>';
+    title[18] = '<%= @postArray[16] %>';
+    title[19] = '<%= @postArray[17] %>';
+    title[20] = '<%= @postArray[18] %>';
+    title[21] = '<%= @postArray[19] %>';
+    title[22] = '<%= @postArray[20] %>';
+    title[23] = '<%= @postArray[21] %>';
+    title[24] = '<%= @postArray[22] %>';
+    title[25] = '<%= @postArray[23] %>';
+    title[26] = '<%= @postArray[26] %>';
+    title[27] = '<%= @postArray[27] %>';
+    title[28] = '<%= @postArray[28] %>';
+    title[29] = '<%= @postArray[29] %>';
+    title[30] = '<%= @postArray[30] %>';
+    
+    function bubble() {
+        var d = new Date();
+        var s = d.getSeconds();
+       document.getElementById("demo").innerHTML = title[Math.floor(Math.random() * title.length)];
+    }
+</script>

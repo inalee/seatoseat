@@ -1,0 +1,82 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background: none;">
+	<div class="container">
+	  <div class="navbar-header">
+	  	<a class="navbar-brand page-scroll" href="/" style="color: #3d078a;">Seat To Seat</a>
+	  </div>
+	  
+	   	<ul class="nav navbar-nav navbar-right" id="NavTab">
+	   		<li> <a class="page-scroll" href="/about">About Us</a></li>
+	   		
+	        <li class="drop-down"> <a class="page-scroll" href="/category">Review</a>
+	        	<div class="mega-menu"> <!--드롭다운-->
+				   <span class="categories-list" >
+					<ul >
+						<li><a class="drop-list" href="/category">공연</a></li>
+						<li style="margin-top: 30px; ">
+							<a class="drop-list" href="/categorySport">스포츠</a>
+						</li>
+						<li style="margin-top: 60px;"><a class="drop-list" href="/categoryTheater">극장</a></li>
+					</ul>
+					</span>
+				</div>
+	        </li>
+	        <li> <a class="page-scroll" href="/create">Add Review</a></li>
+	        
+	        <% if user_signed_in? %>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        	<% else %>
+            <li><%= link_to 'Log in', new_user_session_path %></li>
+        	<% end %>
+	    </ul>
+	</div>
+</nav>
+
+
+
+ <% @perfo.each do |a| %>
+
+ <div class="container">
+     
+   <div id="top" class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header"><%= a.perfo_name %></h2>
+            </div>
+            <div class="col-md-6">
+                <p>장소정보</p>
+                <ul class="infoUl">
+                    <li class="infoList">
+                       주소:
+                    </li>
+                </ul>
+                <p></p>
+                <% @roomSel.each do |x| %>
+                <% @placeFind.each do |w| %>
+                <a href="/seatPlan/<%= x.id %>"><%= w.place_name %> <%= x.name %></a>
+                <% end %>
+                 <% end %>
+
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive" src="<%= a.perfo_img %>" alt="">
+            </div>
+        </div>
+
+    <% end %>
+    
+
+<!--드롭다운 js-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+<script>
+    $(document).ready(function() {
+			
+			//drop down menu	
+					$(".drop-down").hover(function() {
+						$('.mega-menu').addClass('display-on');
+					});
+					$(".drop-down").mouseleave(function() {
+						$('.mega-menu').removeClass('display-on');
+					});
+			
+			});
+</script>

@@ -1,62 +1,53 @@
-<center>
-<!DOCTYPE html>
-<head>
-<title>Classy Register Form Responsive Widget Template :: W3layouts</title>
-<!-- Meta tag Keywords -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Classy Register Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Meta tag Keywords -->
-<!-- css files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-<!-- //css files -->
-<!-- online-fonts -->
-<link href="//fonts.googleapis.com/css?family=Cuprum:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese" rel="stylesheet">
-<!--//online-fonts -->
-</head>
-<body>
-  <header>
-  <div class="backgroud_image">
+<body style="background-color: #fff; color: #3d078a; overflow:hidden;">
+<div class="logincontainer">
+  <div class="login">
+  	<h1 class="login-heading deviceTitle">Seat to Seat</h1>
+    <!--<h3 class="login-heading deviceTitle"> 시작하기</h3>-->
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <form action="#" method="post">
+      	
+    <!--E-mail-->
+    <input id="user_email" type="email" name="user[email]" placeholder="E-mail" required="required" class="login_input" />
+    <!--<input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">-->
+        
+    <!--Password-->
+    <input id="user_password" type="password" name="user[password]" placeholder="Password" required="required" class="login_input" />
+     <!--<input autocomplete="off" type="password" name="user[password]" id="user_password">   -->
     
+    <!--Remember_Me-->
+    <div style="padding-left: 20px;"> <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></div>
+    <!--<label class="boolean optional checkbox" for="user_remember_me"><input class="boolean optional" type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">로그인 유지하기</label>-->
+    
+    <input type="submit" name="commit" value="LOGIN" class="login_btn login_btn--right" >
+        
+    <a class="login_link" href="/users/sign_up">회원가입</a>
+    <a class="login_link" href="/users/password/new">비밀번호 찾기</a>
+ 
+	</form>
+	<% end %>
   </div>
-</header>
-<div class="header">
-	<h1>좌석공유서비스</h1>
 </div>
+</body>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="w3-main">
+
+<!--<%#= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+<!--<div class="w3-main">-->
 	<!-- Main -->
-	<div class="about-bottom main-agile book-form">
-		<div class="alert-close"> </div>
-		<h2 class="tittle">Seat To Seat</h2>
-		<form action="#" method="post">
-			<div class="form-date-w3-agileits">
-				<label> E-Mail </label>
-      			  <%= f.email_field :email, autofocus: true %>
-				<label> Password </label>
-				<%= f.password_field :password, autocomplete: "off" %>
-				 <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-			</div>
-			<div class="sub-main-w3">
-				  <%= f.button :submit, "LOGIN" %>
-			</div>
-      <%= render "users/shared/links" %>
-		</form>
-  </div>
-<% end %>
-
-<!-- js-scripts-->
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-		<script>$(document).ready(function(c) {
-		$('.alert-close').on('click', function(c){
-			$('.main-agile').fadeOut('slow', function(c){
-				$('.main-agile').remove();
-			});
-		});	  
-	});
-	</script>
-<!-- //js-scripts-->
+<!--	<div class="about-bottom main-agile book-form">-->
+<!--		<div class="alert-close"> </div>-->
+<!--		<h2 class="tittle">Seat To Seat</h2>-->
+<!--		<form action="#" method="post">-->
+<!--			<div class="form-date-w3-agileits">-->
+<!--				<label> E-Mail </label>-->
+<!--      			  <%#= f.email_field :email, autofocus: true %>-->
+<!--				<label> Password </label>-->
+<!--				<%#= f.password_field :password, autocomplete: "off" %>-->
+<!--				 <%#= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>-->
+<!--			</div>-->
+<!--			<div class="sub-main-w3">-->
+<!--				  <%#= f.button :submit, "LOGIN" %>-->
+<!--			</div>-->
+<!--      <%#= render "users/shared/links" %>-->
+<!--		</form>-->
+<!--  </div>-->
+<!--<%# end %>-->

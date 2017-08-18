@@ -1,0 +1,21 @@
+<h5>상세후기</h5>
+<% @postFind.each do |p| %>
+    <div>
+    좌석:
+    <% @placeFind.each do |a| %> <!-- 장소 이름 -->
+        <%= a.place_name %>
+    <% end %>
+    <% @seatFind.each do |x| %> <!-- 장소 세부 구역 -->
+        <%= x.area1 %>
+        <%= x.area2 %>
+        <%= x.area3 %>
+    <% end %>
+    <br>
+    한줄평:<%= p.post_title %><br>
+    관람일:<%= p.watch_date %><br>
+    내용:<%= p.post_content %><br>
+    <!--% if !p.post_img.blank? %>
+    사진:<img src="<!--%= p.post_img %>", "width=200, height=200"><br>
+    <!--% end %-->
+    </div>
+<% end %>

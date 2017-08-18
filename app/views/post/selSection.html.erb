@@ -1,0 +1,4 @@
+<option>---</option>
+<% @section.select("DISTINCT(area1)").each do |e| %>
+    <option value='<%= e.area1 %>'><%= e.area1 %></option>
+<% end %>

@@ -1,0 +1,69 @@
+=> {[33m:references[0m=>[],
+ [33m:bind[0m=>
+  [[[32m#<ActiveRecord::ConnectionAdapters::Column:0x00000005eddf50[0m
+     @cast_type[32m=[0m[32m#<ActiveRecord::Type::String:0x00000005edf3c8[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+     @default[32m=[0m[1;36mnil[0m,
+     @default_function[32m=[0m[1;36mnil[0m,
+     @name[32m=[0m[31m[1;31m"[0m[31mregion[1;31m"[0m[31m[0m,
+     @null[32m=[0m[1;36mtrue[0m,
+     @sql_type[32m=[0m[31m[1;31m"[0m[31mvarchar[1;31m"[0m[31m[0m[32m>[0m,
+    [31m[1;31m"[0m[31m서울[1;31m"[0m[31m[0m],
+   [[32m#<ActiveRecord::ConnectionAdapters::Column:0x00000005ede298[0m
+     @cast_type[32m=[0m[32m#<ActiveRecord::Type::String:0x00000005edf3c8[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+     @default[32m=[0m[1;36mnil[0m,
+     @default_function[32m=[0m[1;36mnil[0m,
+     @name[32m=[0m[31m[1;31m"[0m[31mplace_name[1;31m"[0m[31m[0m,
+     @null[32m=[0m[1;36mtrue[0m,
+     @sql_type[32m=[0m[31m[1;31m"[0m[31mvarchar[1;31m"[0m[31m[0m[32m>[0m,
+    [31m[1;31m"[0m[31m블루스퀘어홀[1;31m"[0m[31m[0m],
+   [[32m#<ActiveRecord::ConnectionAdapters::Column:0x00000005ede068[0m
+     @cast_type[32m=[0m[32m#<ActiveRecord::Type::String:0x00000005edf3c8[0m @limit[32m=[0m[1;36mnil[0m, @precision[32m=[0m[1;36mnil[0m, @scale[32m=[0m[1;36mnil[0m[32m>[0m,
+     @default[32m=[0m[1;36mnil[0m,
+     @default_function[32m=[0m[1;36mnil[0m,
+     @name[32m=[0m[31m[1;31m"[0m[31mroom[1;31m"[0m[31m[0m,
+     @null[32m=[0m[1;36mtrue[0m,
+     @sql_type[32m=[0m[31m[1;31m"[0m[31mvarchar[1;31m"[0m[31m[0m[32m>[0m,
+    [31m[1;31m"[0m[31m1관[1;31m"[0m[31m[0m]],
+ [33m:where[0m=>
+  [[32m#<Arel::Nodes::Equality:0x00000005edd208[0m
+    @left[32m=[0m
+     [32m#<struct Arel::Attributes::Attribute[0m
+      relation[32m=[0m
+       [32m#<Arel::Table:0x000000037ed8f0[0m
+        @aliases[32m=[0m[],
+        @columns[32m=[0m[1;36mnil[0m,
+        @engine[32m=[0m
+         Place([35mid[0m: integer, [35mplace_name[0m: string, [35mhref[0m: string, [35mroom[0m: string, [35mregion[0m: string, [35mcreated_at[0m: datetime, [35mupdated_at[0m: datetime),
+        @name[32m=[0m[31m[1;31m"[0m[31mplaces[1;31m"[0m[31m[0m,
+        @primary_key[32m=[0m[1;36mnil[0m,
+        @table_alias[32m=[0m[1;36mnil[0m[32m>[0m,
+      name[32m=[0m[31m[1;31m"[0m[31mregion[1;31m"[0m[31m[0m[32m>[0m,
+    @right[32m=[0m[32m#<Arel::Nodes::BindParam:0x00000005edd690[0m[32m>[0m[32m>[0m,
+   [32m#<Arel::Nodes::Equality:0x00000005edd0c8[0m
+    @left[32m=[0m
+     [32m#<struct Arel::Attributes::Attribute[0m
+      relation[32m=[0m
+       [32m#<Arel::Table:0x000000037ed8f0[0m
+        @aliases[32m=[0m[],
+        @columns[32m=[0m[1;36mnil[0m,
+        @engine[32m=[0m
+         Place([35mid[0m: integer, [35mplace_name[0m: string, [35mhref[0m: string, [35mroom[0m: string, [35mregion[0m: string, [35mcreated_at[0m: datetime, [35mupdated_at[0m: datetime),
+        @name[32m=[0m[31m[1;31m"[0m[31mplaces[1;31m"[0m[31m[0m,
+        @primary_key[32m=[0m[1;36mnil[0m,
+        @table_alias[32m=[0m[1;36mnil[0m[32m>[0m,
+      name[32m=[0m[31m[1;31m"[0m[31mplace_name[1;31m"[0m[31m[0m[32m>[0m,
+    @right[32m=[0m[32m#<Arel::Nodes::BindParam:0x00000005edd618[0m[32m>[0m[32m>[0m,
+   [32m#<Arel::Nodes::Equality:0x00000005edcf88[0m
+    @left[32m=[0m
+     [32m#<struct Arel::Attributes::Attribute[0m
+      relation[32m=[0m
+       [32m#<Arel::Table:0x000000037ed8f0[0m
+        @aliases[32m=[0m[],
+        @columns[32m=[0m[1;36mnil[0m,
+        @engine[32m=[0m
+         Place([35mid[0m: integer, [35mplace_name[0m: string, [35mhref[0m: string, [35mroom[0m: string, [35mregion[0m: string, [35mcreated_at[0m: datetime, [35mupdated_at[0m: datetime),
+        @name[32m=[0m[31m[1;31m"[0m[31mplaces[1;31m"[0m[31m[0m,
+        @primary_key[32m=[0m[1;36mnil[0m,
+        @table_alias[32m=[0m[1;36mnil[0m[32m>[0m,
+      name[32m=[0m[31m[1;31m"[0m[31mroom[1;31m"[0m[31m[0m[32m>[0m,
+    @right[32m=[0m[32m#<Arel::Nodes::BindParam:0x00000005edd5a0[0m[32m>[0m[32m>[0m]}

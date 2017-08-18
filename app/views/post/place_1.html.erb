@@ -1,0 +1,47 @@
+
+<script>
+     $(function () {
+        $('.map').maphilight({ stroke: false, fillColor: 'FF0000', fillOpacity: 0.3 });
+    });
+    
+</script>
+   
+
+ 
+<center> <img  class ="map" src="/assets/blue_square_2.jpg" usemap="#image-map"> </center>
+<map name="image-map">
+    <area alt="" title="" shape="rect" onclick = "selSeat(1);" coords="133,139,140,147" />
+    <area alt="" title="" href="#" shape="rect" coords="144,139,151,146" />
+    <area alt="" title="" href="#" shape="rect" coords="155,139,162,146" />
+    <area alt="" title="" href="#" shape="rect" coords="166,139,173,146" />
+    <area alt="" title="" href="#" shape="rect" coords="177,139,185,146" />
+    <area alt="" title="" href="#" shape="rect" coords="189,139,196,146" />
+    <area alt="" title="" href="#" shape="rect" coords="120,150,128,157" />
+    <area alt="" title="" href="#" shape="rect" coords="131,151,139,157" />
+    <area alt="" title="" href="#" shape="rect" coords="143,150,151,158" />
+    <area alt="" title="" href="#" shape="rect" coords="154,150,162,157" />
+    <area alt="" title="" href="#" shape="rect" coords="165,150,173,157" />
+    <area alt="" title="" href="#" shape="rect" coords="176,150,184,158" />
+    <area alt="" title="" href="#" shape="rect" coords="188,150,196,157" />
+    <area alt="" title="" href="#" shape="rect" coords="200,139,208,146" />
+    <area alt="" title="" href="#" shape="rect" coords="211,139,219,146" />
+    <area alt="" title="" href="#" shape="rect" coords="200,150,208,157" />
+    <area alt="" title="" href="#" shape="rect" coords="211,150,219,157" />
+</map> 
+
+<div id="seatReview"></div>
+
+<!--좌석선택 시 ajax로 한줄평 띄워주는 function-->
+<script>
+       function selSeat(elmnt) {
+        $.ajax({
+          method: "GET",
+          url: "/seatReview",
+          data: { seat_id: elmnt }
+        })
+          .done(function( msg ) {
+            $("#seatReview").html(msg);
+          });
+    }
+    
+</script>

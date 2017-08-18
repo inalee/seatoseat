@@ -1,54 +1,289 @@
-<p>리뷰 작성하기</p>
-<br>
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+	  <div class="navbar-header">
+	  	<a class="navbar-brand page-scroll" href="/">Seat To Seat</a>
+	  </div>
+	  
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	   	<ul class="nav navbar-nav navbar-right" id="NavTab">
+	   		<li> <a class="page-scroll" href="/about">About Us</a></li>
+	   		
+	        <li class="drop-down"> <a class="page-scroll" href="/category">Review</a>
+	        	<div class="mega-menu"> <!--드롭다운-->
+				   <span class="categories-list" >
+					<ul >
+						<li><a class="drop-list" href="/category">공연</a></li>
+						<li style="margin-top: 30px; ">
+							<a class="drop-list" href="/categorySport">스포츠</a>
+						</li>
+						<li style="margin-top: 60px;"><a class="drop-list" href="/categoryTheater">극장</a></li>
+					</ul>
+					</span>
+				</div>
+	        </li>
+	        <li> <a class="page-scroll" href="/create">Add Review</a></li>
+	        
+	        <% if user_signed_in? %>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        	<% else %>
+            <li><%= link_to 'Log in', new_user_session_path %></li>
+        	<% end %>
+	    </ul>
+	  </div>
+	</div>
+</nav>
+<header>
+  <div class="container">
+	<div class="row">
+	    <div class="header-content col-sm-4">
+	          <h1 style="font-size: 2em;"> Create.html </h1>
+            <h3> 부가 설명(부제목)</h3>
+  </div></div></div>
+</header>
+
+
+<div class="container">
+    <div class="main">
 <form action='/create_post' method='POST' enctype="multipart/form-data">
-    <p>별점주기</p>
-    <br><br>
-    <p>관람장소</p>
+    
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label lableMagin">관람 장소</label>
+      <div class="col-lg-10 lableMagin">
+        
     <!-- 지역선택 -->
-    <select name='region'>
+    <select id="region_id" name='region' class="form-control" style="width: 120px; display: inline;" onChange="selVenue(this.value);">
+        <option>지역</option>
         <% @place.select("DISTINCT(region)").each do |e| %>
             <option value='<%= e.region %>'><%= e.region %></option>
         <% end %>
     </select>
-    <!-- 공연장선택 -->
-    <select name='place_name'>
-        <% @place.each do |e| %>
-            <option value='<%= e.place_name %>'><%= e.place_name %></option>
-        <% end %>
-    </select>   
-    <!-- 관선택 -->
-    <select name='place_room'>
-        <% @place.each do |e| %>
-            <option value='<%= e.room %>'><%= e.room %></option>
-        <% end %>
-    </select>
-    <br><br>
-    <p>관람일자</p>
-    <input name='input_watch', type='date'>
-    <br><br>
-    <p>공연</p>
-    <select name='perfo_name'>
-        <% @performance.each do |e| %>
-            <option value='<%= e.perfo_name %>'><%= e.perfo_name %></option>
-        <% end %>
-    </select>
-    <br><br>
-    <p>한줄평</p>
-    <input name='review_title',type='string'>
-    <br><br>
-    <p>상세후기</p>
-    <input name='review_content',type='text'>
-    <br><br>
     
-    <p>사진업로드</p>
-    <div class="input-field col s6">
-    <label for="file_text">이미지를 넣어주세요</label><br><br>
-    <input type="file" name="inputUrl" accept="image/*"><br><br>
+    <!-- 공연장선택 -->
+    <select id='venue' name='place_name' class="form-control" style="width: 120px; display: inline;" onChange="selRoom(this.value);">
+        <option>---</option>
+    </select>   
+
+
+    
+    <!-- 관선택 -->
+    <select id='room' name='place_room' class="form-control" style="width: 120px; display: inline;" onChange="selSection(this.value);">
+        <option>---</option>
+    </select>
+    
+    
+    <!-- 구역선택 -->
+    <select id = "section" name='seat_area1' class="form-control" style="width: 120px; display: inline;" onChange="selRow(this.value);">
+        <option>---</option>
+    </select>
+    
+    <select id="row" name='seat_area2' class="form-control" style="width: 120px; display: inline;" onChange="selNumber(this.value);">
+        <option>---</option>
+    </select>
+    
+    <select id="number" name='seat_area3' class="form-control" style="width: 120px; display: inline;">
+        <option>---</option>
+    </select>
+    </div></div>
+    
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label lableMagin">관람일자</label>
+      <div class="col-lg-10 lableMagin">
+    <input name='input_watch', type='date'>
+    </div></div>
+    
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label lableMagin">공연(선택사항)</label>
+      <div class="col-lg-10 lableMagin">
+        <select name='perfo_name' class="form-control" style="width: 200px;">
+            <% @performance.each do |e| %>
+                <option value='<%= e.perfo_name %>'><%= e.perfo_name %></option>
+            <% end %>
+        </select>
+    </div></div>
+
+    <!-- 별점 -->
+      <div class="form-group">
+      <label for="select" class="col-lg-2 control-label lableMagin">별점 주기</label>
+        <div class="col-lg-10 lableMagin">
+         <table class="table">
+            <tr><td style="border-top-width: 0px; border-bottom-width: 1px;"> 시야 </td> 
+              <td class="rating" style="border-top-width: 0px; border-bottom-width: 1px;"> 
+                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5"></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
+            </td></tr>
+            <tr><td > 편의성 </td> 
+               <td class="rating"> 
+                 <input type="radio" id="star5_2" name="rating2" value="5" /><label class = "full" for="star5_2"></label>
+                <input type="radio" id="star4_2" name="rating2" value="4" /><label class = "full" for="star4_2"></label>
+                <input type="radio" id="star3_2" name="rating2" value="3" /><label class = "full" for="star3_2"></label>
+                <input type="radio" id="star2_2" name="rating2" value="2" /><label class = "full" for="star2_2"></label>
+                <input type="radio" id="star1_2" name="rating2" value="1" /><label class = "full" for="star1_2"></label>
+            </td></tr>
+            <tr><td > 편안함 </td>
+            <td class="rating"> 
+            <input type="radio" id="star5_3" name="rating3" value="5" /><label class = "full" for="star5_3"></label>
+            <input type="radio" id="star4_3" name="rating3" value="4" /><label class = "full" for="star4_3"></label>
+            <input type="radio" id="star3_3" name="rating3" value="3" /><label class = "full" for="star3_3"></label>
+            <input type="radio" id="star2_3" name="rating3" value="2" /><label class = "full" for="star2_3"></label>
+            <input type="radio" id="star1_3" name="rating3" value="1" /><label class = "full" for="star1_3"></label>
+             </td></tr>
+            <tr><td > 음향 </td> 
+            <td class="rating">
+              <input type="radio" id="star5_4" name="rating4" value="5" /><label class = "full" for="star5_4"></label>
+            <input type="radio" id="star4_4" name="rating4" value="4" /><label class = "full" for="star4_4"></label>
+            <input type="radio" id="star3_4" name="rating4" value="3" /><label class = "full" for="star3_4"></label>
+            <input type="radio" id="star2_4" name="rating4" value="2" /><label class = "full" for="star2_4"></label>
+            <input type="radio" id="star1_4" name="rating4" value="1" /><label class = "full" for="star1_4"></label> 
+             </td></tr>
+            <tr><td > 항목 5 </td>
+            <td class="rating"> 
+             <input type="radio" id="star5_5" name="rating5" value="5" /><label class = "full" for="star5_5"></label>
+            <input type="radio" id="star4_5" name="rating5" value="4" /><label class = "full" for="star4_5"></label>
+            <input type="radio" id="star3_5" name="rating5" value="3" /><label class = "full" for="star3_5"></label>
+            <input type="radio" id="star2_5" name="rating5" value="2" /><label class = "full" for="star2_5"></label>
+            <input type="radio" id="star1_5" name="rating5" value="1" /><label class = "full" for="star1_5"></label>
+             </td></tr>
+            
+          </table>
+        </div>
+        
+    </div>
+       
+              
     </div>
     
-    <br><br>
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label lableMagin">한줄평</label>
+      <div class="col-lg-10 lableMagin">
+           <input name='review_title',type='string' class="form-control" id="inputEmail" placeholder="한줄평을 작성해주세요.">
+    </div></div>
     
- 
-    <input type='submit' name='post_submit'>
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label lableMagin">상세 후기</label>
+      <div class="col-lg-10 lableMagin" >
+        <textarea name='review_content',type='text' class="form-control" rows="5" id="textArea" placeholder="상세 후기를 작성해주세요."></textarea>
+        <span class="help-block">관람 후기를 솔직담백하게 남겨주세요!</span>
+    </div></div>
+    
+    <div class="form-group">
+        <label for="select" class="col-lg-2 control-label lableMagin">사진 업로드</label>
+        <div class="col-lg-10 lableMagin">  
+            <div class="input-field col s6">
+                
+                <!--<input type='file' name='image'/>-->
+                <input type='file' name="image" accept="image/*" multiple >
+
+                <span class="help-block">이미지를 넣어주세요</span>
+    </div></div></div>
+    
+    <br><br>
+
+     <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2 lableMagin">
+            <input type='submit' name='post_submit' class=" btn-link" min=0 max=5 multiple>
+    </div></div>
     
 </form>
+
+ 
+
+</div>  </div>
+
+
+<!--공연장 선택-->
+<script>
+    function selVenue(val) {
+    	$.ajax({
+          method: "GET",
+          url: "/selVenue",
+          data: { region: val }
+        })
+          .done(function( msg ) {
+            $("#venue").html(msg);
+          });
+    }
+</script>
+
+<!--관 선택-->
+<script>
+    function selRoom(val) {
+    	$.ajax({
+          method: "GET",
+          url: "/selRoom",
+          data: { venue: val }
+        })
+          .done(function( msg ) {
+            $("#room").html(msg);
+          });
+    }
+</script>
+
+<!--구역 선택-->
+<script>
+    function selSection(val) {
+    	$.ajax({
+          method: "GET",
+          url: "/selSection",
+          data: { room: val }
+        })
+          .done(function( msg ) {
+            $("#section").html(msg);
+          });
+    }
+</script>
+
+<!--열 선택-->
+<script>
+    function selRow(val) {
+        
+        var section = $( "#section option:selected" ).text();
+        
+    	$.ajax({
+          method: "GET",
+          url: "/selRow",
+          data: { room: val, section: section }
+        })
+          .done(function( msg ) {
+            $("#row").html(msg);
+          });
+    }
+</script>
+
+<!--자리 선택-->
+<script>
+    function selNumber(val) {
+        
+        var section = $( "#section option:selected" ).text();
+        var row = $( "#row option:selected" ).text();
+        
+    	$.ajax({
+          method: "GET",
+          url: "/selNumber",
+          data: { room: val, section: section, row: row }
+        })
+          .done(function( msg ) {
+            $("#number").html(msg);
+          });
+    }
+</script>
+
+
+<!--드롭다운 js-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+<script>
+    $(document).ready(function() {
+			
+			//drop down menu	
+					$(".drop-down").hover(function() {
+						$('.mega-menu').addClass('display-on');
+					});
+					$(".drop-down").mouseleave(function() {
+						$('.mega-menu').removeClass('display-on');
+					});
+			
+			});
+</script>
